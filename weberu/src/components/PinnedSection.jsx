@@ -2,9 +2,18 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
-import { data } from "../data";
+import { data } from "../data.js";
+
+// Import images
+import img1 from "../assets/pinned-section/img1.jpg";
+import img2 from "../assets/pinned-section/img2.jpg";
+import img3 from "../assets/pinned-section/img3.jpg";
+import img4 from "../assets/pinned-section/img4.jpg";
+import img5 from "../assets/pinned-section/img5.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const images = [img1, img2, img3, img4, img5]; // Store all imported images
 
 const PinnedSection = () => {
   const progressBarRef = useRef(null);
@@ -27,6 +36,10 @@ const PinnedSection = () => {
       document.getElementById("link").href = link;
     }
 
+    // Pre-load first section content and image
+    updateInfoContent(0);
+    gsap.set(imagesRef.current[0], { opacity: 1, scale: 1 });
+
     ScrollTrigger.create({
       trigger: ".pinned",
       start: "top top",
@@ -43,12 +56,14 @@ const PinnedSection = () => {
             opacity: 0,
             scale: 0.5,
             duration: 1,
+            ease: "power2.out",
           });
 
           gsap.to(imagesRef.current[currentCycle], {
             opacity: 1,
             scale: 1,
             duration: 1,
+            ease: "power2.out",
           });
 
           updateInfoContent(currentCycle);
@@ -61,41 +76,57 @@ const PinnedSection = () => {
       },
     });
 
-    return () => lenis.destroy();
+    return () => {
+      lenis.destroy();
+      ScrollTrigger.killAll();
+    };
   }, []);
 
   return (
     <div className="pinned relative h-screen w-full bg-black text-white">
-      <div className="info absolute top-1/2 transform -translate-y-1/2 w-full flex px-4">
+      {/* Info Section */}
+      <div className="info absolute top-1/2 -translate-y-1/2 w-full flex px-4 space-x-4">
         <div className="flex-1">
-          <p id="title"></p>
+          <p id="title" className="text-lg font-semibold"></p>
         </div>
         <div className="flex-1">
-          <p id="tagline"></p>
+          <p id="tagline" className="text-sm italic text-gray-400"></p>
         </div>
         <div className="flex-1">
-          <p id="year"></p>
+          <p id="year" className="text-base font-medium"></p>
         </div>
         <div className="flex-1">
-          <p id="tag"></p>
+          <p id="tag" className="text-sm uppercase tracking-wider"></p>
         </div>
         <div className="flex justify-end">
-          <a id="link" className="border border-white p-2 rounded" href="#">
+          <a
+            id="link"
+            className="border border-white/25 px-3 py-2 rounded hover:bg-white/10 transition-colors"
+            href="#"
+          >
             Explore
           </a>
         </div>
       </div>
+
+      {/* Progress Bar */}
       <div
         ref={progressBarRef}
-        className="progress-bar absolute top-1/2 left-[75%] transform -translate-x-1/2 w-[2px] h-0 bg-gray-500"
+        className="progress-bar absolute top-1/2 left-[75%] -translate-x-1/2 w-[2px] h-0 bg-gray-500"
       />
-      {data.map((_, index) => (
+
+      {/* Images */}
+      {images.map((image, index) => (
         <div
           key={index}
           ref={(el) => (imagesRef.current[index] = el)}
-          className={`img absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 scale-125 transition-all`}
+          className="img absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 scale-125 transition-all duration-700"
         >
-          <img src={`/assets/img${index + 1}.jpg`} alt="" />
+          <img
+            src={image}
+            alt={`Visual ${index + 1}`}
+            className="w-full h-full object-cover"
+          />
         </div>
       ))}
     </div>
