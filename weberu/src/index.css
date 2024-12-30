@@ -1,7 +1,7 @@
 :root {
-  --color-accent: #1d1d1d;
-  --color-light: #1d1d1d;
-  --color-dark: #fff;
+  --color-accent: #fff;
+  --color-light: #fff;
+  --color-dark: #1d1d1d;
 }
 
 @font-face {

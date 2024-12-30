@@ -184,7 +184,7 @@ const Menu = ({ isOpen, setIsOpen, isDark }) => {
           <Link to="/" onClick={handleNavigation("/")}>
             <img
               id="logo"
-              src={isDark ? "/logo-dark.png" : "/logo.png"}
+              src={isDark ? "/transparent-images/wwe.png" : "/transparent-images/wwe.png"}
               alt="Logo"
             />
           </Link>

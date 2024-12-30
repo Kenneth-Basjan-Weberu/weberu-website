@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; // updated to react-router-dom
 import Footer from "../../components/Footer/Footer";
 import Transition from "../../components/transition/Transition";
 import ParallaxImage from "../../components/ParallaxImage/ParallaxImage";
 import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
-
 import "./Home.css";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis, useLenis } from "lenis/react";
@@ -28,7 +26,6 @@ const Home = () => {
       },
     });
 
-    // Cleanup
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
@@ -37,18 +34,18 @@ const Home = () => {
   return (
     <ReactLenis root>
       <div className="page home">
+        
+        {/* Hero Section */}
         <section className="hero">
           <div className="hero-img">
-            <ParallaxImage src="/home/hero.jpg" alt="" />
+            <img src="/freepik-1.jpg" alt="Hero background" />
           </div>
 
           <div className="hero-header">
-            <h1>
-              Balanced <br /> Pitch
-            </h1>
-            <p>Shaping the Future of Music with AI</p>
+            <h1>Flawless Design</h1>
+            <p>Crafting digital solutions for powerful brands.</p>
             <div className="stickers">
-              <img src="/stickers.png" alt="" />
+              <img src="/transparent-images/m1-fotor.png" alt="Sticker" />
             </div>
             <button>
               <Link to="/contact">Get in touch</Link>
@@ -68,153 +65,137 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Site Intro Section */}
         <section className="site-intro">
           <div className="intro-col">
-            <p className="primary">Empowering Creativity. Redefining Sound.</p>
-            <p>Shaping the Future of Music with AI</p>
+            <p className="primary">Empowering Brands. Redefining Digital.</p>
+            <p>Weberu is reshaping digital landscapes with innovative strategies.</p>
 
-            <MusicPlayer />
+            {/* <MusicPlayer /> */}
+            <div className="intro-img">
+              <div className="intro-img-wrapper-1">
+                <ParallaxImage src="/branded-images/Dreads.jpg" alt="Site Intro Image 1" />
+              </div>
+              <p>At Weberu, we're not just crafting websites; we're sculpting digital experiences. Unleash the power of cutting-edge technology with our bespoke solutions that redefine online presence.</p>
+            </div>
+            
           </div>
           <div className="intro-col">
-            <p>The music industry stands at a pivotal crossroads.</p>
-            <h2>
-              A New <br /> Gold Tech
-            </h2>
-            <h3>Innovation thrives, but artists are left behind.</h3>
+            <p>At Weberu, we know that a strong digital presence is key to building a successful brand. We don’t just design websites; we craft experiences that connect with your audience, driving results.</p>
+            <h2>A New Gold Tech</h2>
+            <h3>Innovation thrives, but brands need more.</h3>
             <p>
-              AI is reshaping the landscape, leveraging the art we’ve poured our
-              souls into—often without recognition or consent. At Balanced
-              Pitch, we believe in harnessing AI's potential while fiercely
-              protecting the artists at its heart. By collaborating with
-              educators, legal pioneers, and industry leaders, we are building a
-              future where creativity is respected, and artists’ rights are
-              safeguarded.
+              Whether it's web design, digital advertising, or social media management, we focus on delivering digital solutions that drive real business results. Our team is here to turn your digital vision into a powerful online presence.
             </p>
             <div className="intro-img">
-              <div className="intro-img-wrapper">
-                <ParallaxImage src="/home/site-intro.jpg" alt="" />
+              <div className="intro-img-wrapper-2">
+                <ParallaxImage src="/home/site-intro.jpg" alt="Site Intro Image 2" />
               </div>
             </div>
           </div>
         </section>
 
+        {/* Cover Section */}
         <section className="cover">
           <div className="cover-img">
-            <ParallaxImage src="/home/cover.jpg" alt="" />
+            <ParallaxImage src="/home/cover.jpg" alt="Cover Image" />
           </div>
 
           <div className="cover-copy">
-            <h3>Committed For</h3>
-            <h2>Creative AI</h2>
+            <h3>Driven By Creative Innovation</h3>
+            <h2>Building Stronger Brands Online</h2>
             <p>
-              Balanced Pitch stands as a voice for artists, ensuring their
-              creative legacy is valued and protected in an AI-driven world. Our
-              mission is to establish a fair and respectful integration of
-              artificial intelligence within the music industry, honoring the
-              work and rights of creators at every step.
+              At Weberu, we are passionate about blending creativity with cutting-edge technology to deliver unique digital marketing and branding solutions. From crafting custom websites to running high-impact social media campaigns, we ensure that your brand is positioned for success.
             </p>
             <br />
             <br />
             <p>
-              By working with educators, legal specialists, industry innovators,
-              and policymakers, we are driving the creation of ethical standards
-              and advocating for robust policies that safeguard the future of
-              artistry in the age of AI.
+              Every business has a story, and we’re here to help you tell yours through strategic digital solutions. Whether you're looking to revamp your website, launch a marketing campaign, or enhance your social media presence, Weberu provides innovative services that allow you to connect with your audience in meaningful ways.
             </p>
 
             <div className="cover-cta">
               <button>
-                <Link to="/">Our Mission</Link>
+                <Link to="/services">Our Services</Link>
               </button>
             </div>
           </div>
         </section>
 
+        {/* Mix-Tape Section */}
         <section className="mix-tape">
-          <p className="primary">Responsible AI in Academia</p>
-          <p>Balanced Pitch</p>
+          <p className="primary">Building Digital Excellence</p>
+          <p>From Concept to Completion</p>
 
-          <h1>
-            From Innovation <br />
-            To Iconic
-          </h1>
+          <h1>From Vision to Success</h1>
 
           <div className="tape">
             <div className="strip">
-              <img src="/home/strip.png" alt="" />
+              <img src="/home/strip.png" alt="Tape Strip" />
             </div>
             <div className="tape-img">
-              <img src="/home/tape.png" alt="" />
+              <img src="/home/tape.png" alt="Tape Image" />
             </div>
           </div>
 
           <div className="tape-info">
             <p>
-              The next generation of data scientists and music creators is
-              shaping the AI technologies that will define the future of the
-              music industry.
+              Your digital presence is more than just a website; it’s an experience. Our team ensures that every aspect of your online presence is seamless and impactful, turning your ideas into reality.
             </p>
             <br />
             <br />
             <p>
-              Balanced Pitch collaborates with universities and their music
-              programs to promote awareness and establish ethical AI practices.
-              We also offer opportunities for aspiring artists and data
-              engineers to innovate and thrive in the evolving music landscape.
+              At Weberu, we collaborate with businesses like yours to design and implement digital strategies that make an impact. From the first consultation to the final product launch, we are there every step of the way.
             </p>
 
             <div className="sticker">
-              <img src="/stickers-dark.png" alt="" />
+              <img src="/stickers-dark.png" alt="Sticker" />
             </div>
           </div>
         </section>
 
+        {/* Latest Updates Section */}
         <section className="latest-updates">
           <h1>Latest Updates</h1>
           <p className="lp-tagline">
-            Explore the latest updates, comprehensive guidelines, and valuable
-            resources at the crossroads of AI innovation and the music industry.
+            Stay ahead with the latest trends, strategies, and insights in digital marketing and creative solutions.
           </p>
 
           <div className="updates-page-link">
-            <Link to="/">View All Updates</Link>
+            <Link to="/updates">View All Updates</Link>
           </div>
 
           <div className="articles-row">
             <div className="article">
               <div className="article-img">
-                <ParallaxImage src="/updates/article1.jpg" alt="" speed={0.1} />
+                <ParallaxImage src="/updates/article1.jpg" alt="Article 1" speed={0.1} />
               </div>
               <div className="article-title">
-                <h3>
-                  The Fight for Authenticity: Tackling Unauthorized AI-Generated
-                  Voices
-                </h3>
+                <h3>The Future of Digital Branding: Trends to Watch in 2024</h3>
               </div>
               <div className="article-link">
                 <p className="primary">
-                  <Link to="/">Read More</Link>
+                  <Link to="/updates/article1">Read More</Link>
                 </p>
               </div>
             </div>
 
             <div className="article">
               <div className="article-img">
-                <ParallaxImage src="/updates/article2.jpg" alt="" speed={0.1} />
+                <ParallaxImage src="/updates/article2.jpg" alt="Article 2" speed={0.1} />
               </div>
               <div className="article-title">
-                <h3>
-                  Protecting Iconic Voices: The Struggle Against AI Imitation
-                </h3>
+                <h3>Building Engaging Websites: Best Practices for 2024</h3>
               </div>
               <div className="article-link">
                 <p className="primary">
-                  <Link to="/">Read More</Link>
+                  <Link to="/updates/article2">Read More</Link>
                 </p>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Footer Section */}
         <Footer />
       </div>
     </ReactLenis>
