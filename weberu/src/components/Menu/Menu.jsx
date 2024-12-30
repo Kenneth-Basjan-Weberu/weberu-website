@@ -245,8 +245,8 @@ const Menu = ({ isOpen, setIsOpen, isDark }) => {
           </div>
 
           <div className="menu-footer" ref={menuFooterRef}>
-            <p className="primary">Empowering Creativity. Redefining Sound.</p>
-            <p>Shaping the Future of Music with AI</p>
+            <p className="primary">Elevate Your Digital Presence with Weberu</p>
+            <p>Where Innovation Meets Impact in the Digital Realm</p>
           </div>
         </div>
       </div>

@@ -16,11 +16,11 @@ function App() {
   const isDarkMenu = location.pathname === "/updates";
 
   const pageTitles = {
-    "/": "Balanced Pitch | CG MWT NOV 2024",
-    "/about": "About Us | Balanced Pitch | CG MWT NOV 2024",
-    "/solutions": "Solutions | Balanced Pitch | CG MWT NOV 2024",
-    "/updates": "Updates | Balanced Pitch | CG MWT NOV 2024",
-    "/contact": "Contact | Balanced Pitch | CG MWT NOV 2024",
+    "/": "Elevate Your Digital Presence with Weberu",
+    "/about": "About Us | Weberu",
+    "/solutions": "Solutions | Weberu",
+    "/updates": "Updates | Weberu",
+    "/contact": "Contact | Weberu",
   };
 
   useEffect(() => {
